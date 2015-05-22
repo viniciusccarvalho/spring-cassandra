@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'spring-casssandra'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {url="http://repo.spring.io/snapshot"}
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.data:spring-data-cassandra:1.3.0.BUILD-SNAPSHOT")
+
+
+    compile 'org.springframework.cloud:spring-cloud-spring-service-connector:1.1.1.RELEASE'
+    compile 'org.springframework.cloud:spring-cloud-cloudfoundry-connector:1.1.1.RELEASE'
+    compile 'org.axonframework:axon-core:2.4.1'
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("junit:junit")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
