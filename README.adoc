@@ -1,0 +1,19 @@
+== How to use
+
+Deploy to cloudfoundry, bind a cassandra service
+
+Two simple endpoints:
+
+POST /weather
+
+----
+{
+"id" : "ffbbccdd",
+"event_time": 1432328731,
+"temperature" : 67
+
+}
+----
+
+GET /weather/{id}
+
