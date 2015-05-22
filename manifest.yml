@@ -1,0 +1,9 @@
+---
+applications:
+- name: spring-cassandra
+  memory: 512M 
+  instances: 1
+  host: spring-cassandra
+  path: build/libs/spring-casssandra-0.1.0.jar
+  services:
+   - weather-db
